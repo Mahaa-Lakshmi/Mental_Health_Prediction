@@ -11,6 +11,8 @@ import joblib
 
 df=pd.read_csv('E:/AI engineer/Guvi/Capstone Projects/Project5/Mental_Health_Prediction/data/train.csv')
 
+print("file loaded")
+
 #we are dropping this columns because 80% data are missing and can cause misleading predicitons
 
 #id – Just a row identifier, not useful for modeling → Drop.
@@ -71,10 +73,18 @@ le= LabelEncoder()
 df['City'] = le.fit_transform(df['City'])
 df['Degree'] = le.fit_transform(df['Degree'])
 
+print("encoding done")
+
 #imputations
-knn_imputer = KNNImputer(n_neighbors=5)
+"""knn_imputer = KNNImputer(n_neighbors=5)
 ordinal_cols = ['Work Pressure', 'Job Satisfaction', 'Financial Stress']  # include similar ones
-df[ordinal_cols] = knn_imputer.fit_transform(df[ordinal_cols])
+df[ordinal_cols] = knn_imputer.fit_transform(df[ordinal_cols])"""
+
+ordinal_cols = ['Work Pressure', 'Job Satisfaction', 'Financial Stress']
+for i in ordinal_cols:
+    df[i] = df[i].fillna(df[i].mode()[0])
+
+print("imputations done")
 
 cols_to_scale = [
     'Age', 'Work Pressure', 'Job Satisfaction',
@@ -87,7 +97,7 @@ df[cols_to_scale] = scaler.fit_transform(df[cols_to_scale])
 df.to_csv("E:/AI engineer/Guvi/Capstone Projects/Project5/Mental_Health_Prediction/processedData/train_processedData.csv",index=False)
 
 joblib.dump(le, 'E:/AI engineer/Guvi/Capstone Projects/Project5/Mental_Health_Prediction/models/label_encoder.pkl')
-joblib.dump(knn_imputer, 'E:/AI engineer/Guvi/Capstone Projects/Project5/Mental_Health_Prediction/models/knn_imputer.pkl')
+#joblib.dump(knn_imputer, 'E:/AI engineer/Guvi/Capstone Projects/Project5/Mental_Health_Prediction/models/knn_imputer.pkl')
 joblib.dump(scaler, 'E:/AI engineer/Guvi/Capstone Projects/Project5/Mental_Health_Prediction/models/scaler.pkl')
 
 print("Preprocessing completed and saved models!")

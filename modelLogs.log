@@ -1,0 +1,28 @@
+2025-05-02 23:36:43,267 - INFO - Selected columns: ['Age', 'Working Professional or Student', 'Have you ever had suicidal thoughts ?', 'Financial Stress', 'Work Pressure', 'Job Satisfaction', 'Work/Study Hours', 'Dietary Habits', 'Degree', 'Sleep Duration']
+2025-05-02 23:44:00,258 - INFO - 
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.94      0.90      0.92     23005
+           1       0.91      0.94      0.92     23049
+
+    accuracy                           0.92     46054
+   macro avg       0.92      0.92      0.92     46054
+weighted avg       0.92      0.92      0.92     46054
+
+2025-05-02 23:44:00,332 - INFO - ROC AUC Score: 0.9732347542395458
+2025-05-02 23:44:00,479 - INFO - Model saved to E:/AI engineer/Guvi/Capstone Projects/Project5/Mental_Health_Prediction/models/prediction_model.pth
+2025-05-03 16:15:26,377 - INFO - Selected columns: ['Age', 'Working Professional or Student', 'Have you ever had suicidal thoughts ?', 'Job Satisfaction', 'Financial Stress', 'Work Pressure', 'Work/Study Hours', 'Dietary Habits', 'Degree', 'Sleep Duration']
+2025-05-03 16:23:58,181 - INFO - 
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.93      0.91      0.92     23005
+           1       0.91      0.93      0.92     23049
+
+    accuracy                           0.92     46054
+   macro avg       0.92      0.92      0.92     46054
+weighted avg       0.92      0.92      0.92     46054
+
+2025-05-03 16:23:58,262 - INFO - ROC AUC Score: 0.973316056701593
+2025-05-03 16:23:58,429 - INFO - Model saved to E:/AI engineer/Guvi/Capstone Projects/Project5/Mental_Health_Prediction/models/prediction_model.pth

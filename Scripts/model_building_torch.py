@@ -27,10 +27,12 @@ logging.basicConfig(
 MODEL_PATH = "E:/AI engineer/Guvi/Capstone Projects/Project5/Mental_Health_Prediction/models/prediction_model.pth"
 
 # ----------------- Load dataset -----------------
-df = pd.read_csv("E:/AI engineer/Guvi/Capstone Projects/Project5/Mental_Health_Prediction/processedData/train_scaled.csv")
+df = pd.read_csv("E:/AI engineer/Guvi/Capstone Projects/Project5/Mental_Health_Prediction/processedData/train_processedData.csv")
 
 X = df.drop('Depression', axis=1)
 y = df['Depression']
+
+print("file loaded")
 
 # ----------------- Feature Selection -----------------
 rf = RandomForestClassifier(n_estimators=500, max_depth=3, random_state=42)
@@ -48,6 +50,8 @@ X = df[selected_cols]
 # ----------------- Apply SMOTE -----------------
 smote = SMOTE(random_state=42)
 X_resampled, y_resampled = smote.fit_resample(X, y)
+
+print("smote done")
 
 # ----------------- Train-Test Split -----------------
 X_train, X_test, y_train, y_test = train_test_split(X_resampled, y_resampled, test_size=0.2, random_state=42)
@@ -165,6 +169,7 @@ for epoch in range(50):
 # Load best model
 model.load_state_dict(best_model_state)
 
+print("load state dict done")
 # ----------------- Evaluation -----------------
 model.eval()
 with torch.no_grad():
