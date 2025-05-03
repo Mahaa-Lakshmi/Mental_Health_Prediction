@@ -61,6 +61,8 @@ streamlit run app.py
 
 Make sure the model and preprocessing artifacts (`.pth`, `.pkl` files) are in the `models/` directory.
 
+deployed app link :- https://mentalhealthprediction-un5ihnngkwsk4fmjmmkqwx.streamlit.app/
+
 
 
 
